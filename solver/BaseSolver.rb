@@ -1,6 +1,7 @@
 class BaseSolver
-    def displaySolution
-        fail NotImplementedError, "A Solver class must define displaySolution"
+    def displaySolution mode
+        # fail NotImplementedError, "A Solver class must define displaySolution"
+        puts '¯\_(ツ)_/¯'
     end
 
     def initializeSolution

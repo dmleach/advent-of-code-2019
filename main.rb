@@ -1,4 +1,4 @@
-problem = "03"
+problem = "04"
 
 className = "Solver" + problem
 
