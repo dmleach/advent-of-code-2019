@@ -1,21 +1,25 @@
+require 'pathname'
+
 class BaseSolver
     def displaySolution mode
-        # fail NotImplementedError, "A Solver class must define displaySolution"
         puts '¯\_(ツ)_/¯'
     end
 
     def initializeSolution
     end
 
-    def processInput(input, mode)
-        fail NotImplementedError, "A Solver class must define processInput"
+    def processInput input, mode
     end
 
-    def solve(inputFilepath, mode)
+    def solve inputFilepath, mode
         initializeSolution
 
-        IO.foreach(inputFilepath) do |input|
-            processInput input, mode
+        filepath = Pathname.new(inputFilepath)
+
+        if filepath.exist?
+            filepath.each_line do |input|
+                processInput input, mode
+            end
         end
 
         displaySolution mode

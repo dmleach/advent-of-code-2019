@@ -21,24 +21,23 @@ class Solver02 < BaseSolver
     def processInputMode1(input)
         _computer = Computer.new
         _computer.load input
-        _computer.put 1, 12
-        _computer.put 2, 2
-        _computer.run
-        @solution = _computer.get 0
+        _computer.put! 1, 12
+        _computer.put! 2, 2
+        @solution =_computer.run
     end
 
     def processInputMode2(input)
         _computer = Computer.new
         _noun = 0
         _verb = 0
+        _computer.loadCommands input
 
         loop do
-            _computer.load input
-            _computer.put 1, _noun
-            _computer.put 2, _verb
-            _computer.run
+            _computer.loadMemory input
+            _computer.put! 1, _noun
+            _computer.put! 2, _verb
 
-            if (_computer.get 0) == 19690720
+            if _computer.run == 19690720
                 @solution = _noun * 100 + _verb
                 return
             end
